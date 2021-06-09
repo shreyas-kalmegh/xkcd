@@ -4,7 +4,7 @@ A cli application for xkcd API.
 
 ## Description
 
-This project allows us to pull comics from the xkcd API and save it in a database. Saved comics are available through cli.
+This project allows us to pull comics from the xkcd API and save it in a database. Saved comics are available through cli. Comics are pulled randomly with number id between 1 and 87.
 
 ## Getting Started
 

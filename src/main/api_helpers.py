@@ -79,11 +79,11 @@ def get_random_comics(n: int = 15) -> list[tuple]:
     """
 
     #raise error if n > 81
-    if n > 81:
-        raise ValueError("Value of n should be < 82.")
+    if n > 88:
+        raise ValueError("Value of n should be < 88.")
 
     #generate a sorted list of random numbers between 1 and 81
-    rn_nums = sorted(random.sample(range(1, 82), n))
+    rn_nums = sorted(random.sample(range(1, 88), n))
     #list object to hold the comics data
     comic_l = []
     #define a general endpoint which can be formatted
