@@ -12,6 +12,8 @@ services:
       MYSQL_PASSWORD: dbpass
       MYSQL_HOST: db
       MYSQL_PORT: 3306
+    depends_on:
+      - db
     networks:
       - clinettest
 
@@ -37,6 +39,8 @@ services:
     restart: always
     ports:
       - 8080:8080
+    depends_on:
+      - db
     networks:
       - clinettest
 

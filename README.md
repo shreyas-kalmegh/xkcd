@@ -108,6 +108,12 @@ podman-compose -f docker-compose.test.yaml down
 
 <br />
 
+### Access DB from Adminer
+To access the database from Adminer. Use the following link in a browser.
+http://localhost:8080/
+
+<br />
+
 ## Help
 
 To get help on task one.
