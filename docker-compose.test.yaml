@@ -1,0 +1,47 @@
+version: "3.8"
+services: 
+  cli_app:
+    image: cli_app
+    container_name: cli_app_test
+    restart: always
+    stdin_open: true
+    tty: true
+    environment:
+      MYSQL_DATABASE: dbtest
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpass
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+    networks:
+      - clinettest
+
+  db:
+    container_name: mysqltest
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - mysqldbvoltest:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: dbtest
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpass
+      MYSQL_ROOT_PASSWORD: admin
+    networks:
+      - clinettest
+
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - clinettest
+
+volumes:
+  mysqldbvoltest: {}
+
+networks:
+  clinettest: {}
