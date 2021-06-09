@@ -6,7 +6,7 @@ from time import sleep
 from tqdm import tqdm
 
 
-def get_retry() -> None:
+def get_retry() -> Retry:
     """
     Get retry object.
 
