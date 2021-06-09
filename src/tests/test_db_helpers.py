@@ -138,13 +138,12 @@ class DbTest(unittest.TestCase):
     @patch.object(pymysql, "connect")
     def test_insert_comics(self, mock_connect):
         expected_query = f"""
-    INSERT INTO comics(num, name, alt_text, link, image, im_link)
-    VALUES (%s, %s, %s, %s, %s, %s)
-    ON DUPLICATE KEY UPDATE VALUES num=%s
+    INSERT INTO comics(num, name, alt_text, link, image,  im_link)    
+    VALUES (%s, %s, %s, %s, %s, %s) AS new  ON DUPLICATE KEY UPDATE num=new.num   
     """
-        input_set = [('11', 'Barrel - Part 2', 'Awww.', 'https://xkcd.com/11',
+        input_set = [(11, 'Barrel - Part 2', 'Awww.', 'https://xkcd.com/11',
                       'image_data',
-                      'https://imgs.xkcd.com/comics/barrel_mommies.jpg', '11')]
+                      'https://imgs.xkcd.com/comics/barrel_mommies.jpg')]
 
         #mock connection and cursor objects`
         mock_connect.return_value = MagicMock()

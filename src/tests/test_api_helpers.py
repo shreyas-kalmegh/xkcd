@@ -38,9 +38,9 @@ class ApiTest(unittest.TestCase):
             'title': 'Barrel - Part 2',
             'day': '1'
         }
-        comic_l = [('11', 'Barrel - Part 2', 'Awww.', 'https://xkcd.com/11',
+        comic_l = [(11, 'Barrel - Part 2', 'Awww.', 'https://xkcd.com/11',
                     'image_data',
-                    'https://imgs.xkcd.com/comics/barrel_mommies.jpg', '11')]
+                    'https://imgs.xkcd.com/comics/barrel_mommies.jpg')]
 
         mock_download_image.return_value = image
         mock_get().json.return_value = comic_d

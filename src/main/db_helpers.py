@@ -1,3 +1,4 @@
+import copy
 from collections import OrderedDict
 import json
 import sys
@@ -239,14 +240,15 @@ def insert_comics(data: list[tuple]) -> None:
 
     #query to insert data into the comics table
     query = f"""
-    INSERT INTO comics(num, name, alt_text, link, image, im_link)
-    VALUES (%s, %s, %s, %s, %s, %s)
-    ON DUPLICATE KEY UPDATE VALUES num=%s
+    INSERT INTO comics(num, name, alt_text, link, image,  im_link)    
+    VALUES (%s, %s, %s, %s, %s, %s) AS new  ON DUPLICATE KEY UPDATE num=new.num   
     """
 
     try:
+        mysql_config_insert = copy.deepcopy(mysql_config)
+        mysql_config_insert.pop('cursorclass')
         #create a cursor with a connection and execute query
-        with pymysql.connect(**mysql_config) as cnx:
+        with pymysql.connect(**mysql_config_insert) as cnx:
             with cnx.cursor() as cursor:
                 #insert all records at once
                 cursor.executemany(query.strip(), data)

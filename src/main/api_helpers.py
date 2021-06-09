@@ -103,11 +103,12 @@ def get_random_comics(n: int = 15) -> list[tuple]:
             comic_j = r.json()
             image = download_image(comic_j["img"])
             link = link_endpoint + str(comic_j["num"])
-            comic_t = (str(comic_j["num"]), comic_j["title"], comic_j["alt"],
-                       link, image, comic_j["img"], str(comic_j["num"]))
+            comic_t = (comic_j["num"], comic_j["title"], comic_j["alt"],
+                       link, image,  comic_j["img"])
             comic_l.append(comic_t)
             #be mindfull of using free apis by avoiding burst of requests
             sleep(0.1)
     except Exception as e:
         print(e)
+        
     return comic_l
