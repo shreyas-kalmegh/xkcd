@@ -10,8 +10,8 @@ This project allows us to pull comics from the xkcd API and save it in a databas
 
 ### Dependencies
 
-* Python: 3.9.x
-* MySQL: 8.x
+* Python: 3.9
+* MySQL: ~> 8.20
 * Python dependencies in requirements.txt
 * Podman: ~> 2.2.1 or equivalent Docker version
 * Podman-Compose: ~> 0.1.7dev or equivalent  Docker-Compose version
