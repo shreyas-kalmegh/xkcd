@@ -69,12 +69,12 @@ python task_one.py -l
 ``` 
 * To get the image link to one of the saved comic by number id, use this command:
 ```
-python task_one.py -n 21
+python task_one.py -n <number_id>
 ```
 * To get the image link to one of the saved comic
 by its title, use this command.
 ```
-python task_one.py -t kepler
+python task_one.py -t <title>
 ```
 * Stop the containers gracefully.
 ```
