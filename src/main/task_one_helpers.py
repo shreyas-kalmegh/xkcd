@@ -23,11 +23,6 @@ def main(args, out: IO[str] = sys.stdout) -> None:
     None    
     """
 
-    #query to insert data into the comics table
-    query = f"""
-    INSERT INTO comics(num, name, alt_text, link, image, im_link)
-    VALUES (%s, %s, %s, %s, %s, %s)
-    """
     #create an argparser
     parser = argparse.ArgumentParser(add_help=False)
     #create a group to create mutually excusive arguments
